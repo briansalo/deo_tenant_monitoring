@@ -24,9 +24,7 @@ public function UnpaidRentalView(){
        $newtoday = Carbon::now(); // i create new carbon of today because the $today variable is adding a month now. because of variable $addmonthtoday
 
 
-
     ////////// check if there is missing month that need to pay base from first pay of the tenant up to this month /////////////
-
 
        $lastresult = [];
 

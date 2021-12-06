@@ -35,6 +35,7 @@
 										<div class="controls">
 										   <select name="select_name" id="select_name"  required="" class="form-control" aria-invalid="false">
 												<option value="" selected="" disabled="">Select Name</option>
+												<option value="cancel">Cancel OR</option>
 													@foreach($alltenant as $tenant)
 													<option value="{{ $tenant->id }}" >{{ $tenant->name }}</option>
 													@endforeach
@@ -49,7 +50,7 @@
 							<div class="form-group">
 								<h5>OR#<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="text" name="or_number"  class="form-control">
+									<input type="text" name="or_number" value="{{$or_number}}"  class="form-control" disabled="">
 								</div>
 							</div>
 							</div><!-- end col md 6 -->							

@@ -14,22 +14,33 @@ class AdvanceRentalPaymentController extends Controller
 public function AdvanceRentalPaymentAdd(){
 
         $data['alltenant'] = Tenant::all();
+
+        $OR= Payment::select('or_number')->orderBy('id','DESC')->first()->or_number;
+        $data['or_number'] = $OR+1;
+
         return view('backend.rental.advance_payment.advance_payment_add', $data);
 }
 
 
 public function AdvanceRentalPaymentStore(Request $request){
-        //dd(count($request->month));
-
-        for($i=0; $i<count($request->month); $i++){
-
-        $data= new Payment();
-        $data->tenant_id = $request->select_name;
-        $data->billing_id = '0'; // number zero means rental payment
-        $data->month = date('Y-m-d',strtotime($request->month[$i]));
-        $data->or_number = $request->or_number;
-        $data->status = '0';
-        $data->save();
+       
+        $OR= Payment::select('or_number')->orderBy('id','DESC')->first()->or_number;
+        if($request->select_name =="cancel"){
+                $data= new Payment();
+                $data->tenant_id = '0'; // number zero means rental payment
+                $data->billing_id = '3'; // number 3 means cancel O.R.
+                $data->or_number = $OR+1;
+                $data->save();
+        }else{
+                for($i=0; $i<count($request->month); $i++){
+                $data= new Payment();
+                $data->tenant_id = $request->select_name;
+                $data->billing_id = '0'; // number zero means rental payment
+                $data->month = date('Y-m-d',strtotime($request->month[$i]));
+                $data->or_number = $request->or_number;
+                $data->status = '0';
+                $data->save();
+                }
 
         }
 
