@@ -15,6 +15,7 @@ public function AdvanceRentalPaymentAdd(){
 
         $data['alltenant'] = Tenant::all();
 
+        //get the or number that last save in table payment
         $OR= Payment::select('or_number')->orderBy('id','DESC')->first()->or_number;
         $data['or_number'] = $OR+1;
 
@@ -24,10 +25,12 @@ public function AdvanceRentalPaymentAdd(){
 
 public function AdvanceRentalPaymentStore(Request $request){
        
-        $OR= Payment::select('or_number')->orderBy('id','DESC')->first()->or_number;
+
         if($request->select_name =="cancel"){
+                //get the or number that last save in table payment
+                $OR= Payment::select('or_number')->orderBy('id','DESC')->first()->or_number;
                 $data= new Payment();
-                $data->tenant_id = '0'; // number zero means rental payment
+                $data->tenant_id = '0'; // number zero means cancel O.R.
                 $data->billing_id = '3'; // number 3 means cancel O.R.
                 $data->or_number = $OR+1;
                 $data->save();
