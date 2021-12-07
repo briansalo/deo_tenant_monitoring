@@ -17,23 +17,32 @@ public function ElectricityPaymentAdd(){
 
     $data['alltenant'] = Tenant::all();
 
+    $OR= Payment::select('or_number')->orderBy('id','DESC')->first()->or_number;
+    $data['or_number'] = $OR+1;
+
     return view('backend.electricity.electricity_payment.electricity_payment_add', $data);
 }
 
 
 public function ElectricityPaymentStore(Request $request){
 
-
-
-        $data= new Payment();
-        $data->tenant_id = $request->select_name;
-        $data->billing_id = '1'; // number one means electricity payment
-        $data->start_date = date('Y-m-d',strtotime($request->from));
-        $data->end_date = date('Y-m-d',strtotime($request->to));
-        $data->or_number = $request->or_number;
-        $data->status = '0';
-        $data->save();
-
+    if($request->select_name =="cancel"){
+         $OR= Payment::select('or_number')->orderBy('id','DESC')->first()->or_number;
+            $data= new Payment();
+            $data->tenant_id = '0'; // number zero means cancel O.R.
+            $data->billing_id = '3'; // number 3 means cancel O.R.
+            $data->or_number = $OR+1;
+            $data->save();
+     }else{       
+            $data= new Payment();
+            $data->tenant_id = $request->select_name;
+            $data->billing_id = '1'; // number one means electricity payment
+            $data->start_date = date('Y-m-d',strtotime($request->from));
+            $data->end_date = date('Y-m-d',strtotime($request->to));
+            $data->or_number = $request->or_number;
+            $data->status = '0';
+            $data->save();
+    }
 
 //##########################################################################
 // ITEXMO SEND SMS API - PHP - CURL-LESS METHOD
@@ -54,7 +63,9 @@ function itexmo($number,$message,$apicode,$passwd){
 }
 //##########################################################################
 
-$result = itexmo("09153588103","Test Message","TR-BRIAN588103_S7DBN", "zte4r@83#6");
+$number = '09153588103';
+
+$result = itexmo($number,"Test Message","TR-BRIAN588103_S7DBN", "zte4r@83#6");
 if ($result == ""){
 echo "iTexMo: No response from server!!!
 Please check the METHOD used (CURL or CURL-LESS). If you are using CURL then try CURL-LESS and vice versa.  
