@@ -11,85 +11,112 @@
     <section class="sidebar"> 
     
         <div class="user-profile">
-      <div class="ulogo">
-         <a href="index.html">
-          <!-- logo for regular state and mobile devices -->
-           <div class="d-flex align-items-center justify-content-center">           
-              <img src="../images/logo-dark.png" alt="">
-              <h3><b>Deofavente</b> Admin</h3>
-           </div>
-        </a>
-      </div>
+            <div class="ulogo">
+               <a href="index.html">
+                <!-- logo for regular state and mobile devices -->
+                 <div class="d-flex align-items-center justify-content-center">           
+                    <img src="../images/logo-dark.png" alt="">
+                    <h3><b>Deofavente</b> Admin</h3>
+                 </div>
+              </a>
+            </div>
         </div>
       
       <!-- sidebar menu-->
       <ul class="sidebar-menu" data-widget="tree">  
       
-    <li class="{{($route == 'dashboard')?'active':''}}">
-          <a href="{{ route('dashboard')}}">
-            <i data-feather="pie-chart"></i>
-      <span>Dashboard</span>
-          </a>
-        </li>  
-        <li class="treeview {{($prefix == '/users')?'active':''}}"> <!-- condition if the prefix is users then active or highlights the manage user-->
-          <a href="#">
-            
-            <span>Tenant Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="ti-more"></i>View User</a></li>
+              <li class="{{($route == 'dashboard')?'active':''}}">
+                    <a href="{{ route('dashboard')}}">
+                      <i data-feather="pie-chart"></i>
+                        <span>Dashboard</span>
+                    </a>
+              </li>  
+
+              <li class="treeview {{($prefix == '/tenant')?'active':''}}"> 
+                  <a href="#">
+                    <span>Tenant</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                      <li class="{{($route == 'tenant.view')?'active':''}}">
+                          <a href="{{ route('tenant.view')}}"><i class="ti-more"></i>View Tenant
+                          </a>
+                      </li>
+                      <li class="{{($route == 'tenant.add')?'active':''}}">
+                          <a href="{{ route('tenant.add')}}"><i class="ti-more"></i>Add Tenant
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="treeview {{($prefix == '/manage')?'active':''}}"> <!-- condition if the prefix is users then active or highlights the manage user-->
+                <a href="#">               
+                  <span>Management</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                  </span>
+                </a>
+                  <ul class="treeview-menu">
+                      <li class="{{($route == 'official.receipt.view' or $route == 'payment.edit')?'active':''}}">
+                          <a href="{{ route('official.receipt.view')}}"><i class="ti-more"></i>Official Receipt Record
+                          </a>
+                      </li>
+                      <li class="{{($route == 'acknowledge.receipt.view' or $route == 'payment.edit')?'active':''}}">
+                          <a href="{{ route('acknowledge.receipt.view')}}"><i class="ti-more"></i>Acknowledge Receipt Record
+                          </a>
+                      </li>
+                      <li class="{{($route == 'payment.add')?'active':''}}">
+                          <a href="{{ route('payment.add')}}"><i class="ti-more"></i>Payment
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="treeview {{($prefix == '/unpaid_bill')?'active':''}}"> 
+                  <a href="#">
+                    <span>Unpaid Bill</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                      <li class="{{($route == 'unpaid.rental.view')?'active':''}}">
+                        <a href="{{ route('unpaid.rental.view')}}"><i class="ti-more active"></i>Unpaid Rental
+                        </a>
+                      </li>
+                      <li class="{{($route == 'unpaid.electricity.view')?'active':''}}">
+                        <a href="{{route('unpaid.electricity.view')}}"><i class="ti-more"></i>Unpaid Electricity
+                        </a>
+                      </li>
+                      <li class="{{($route == 'unpaid.deepwell.view')?'active':''}}">
+                        <a href="{{route('unpaid.deepwell.view')}}"><i class="ti-more"></i>Unpaid Deep Well
+                        </a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="treeview {{($prefix == '/to_do_list')?'active':''}}"> 
+                  <a href="#">
+                    <span>To-Do Things</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                      <li class="{{($route == 'to_do.add')?'active':''}}">
+                        <a href="{{ route('to_do.add')}}"><i class="ti-more active"></i>To Do Add
+                        </a>
+                      </li>
+                      <li class="{{($route == 'to_do.list')?'active':''}}">
+                        <a href="{{route('to_do.view')}}"><i class="ti-more"></i>To Do List
+                        </a>
+                      </li>
+                  </ul>
+              </li>
+
           </ul>
-        </li>
-
-      
-        <li class="treeview {{($prefix == '/setups')?'active':''}} "> <!-- condition of the prefix is setups then active or highlights this-->
-          <a href="#">
-             <span>Rental Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{route('advance.rental.payment.add')}}"><i class="ti-more"></i>Payment</a></li>
-            <li><a href="{{ route('unpaid.rental.view')}}"><i class="ti-more"></i>Unpaid Rental</a></li>
-            <li><a href=""><i class="ti-more"></i>Compute Penalty</a></li>
-
-          </ul>
-        </li>
-      
-
-<li class="treeview {{($prefix == '/students')?'active':''}} "> <!-- condition of the prefix is setups then active or highlights this-->
-          <a href="#">
-             <span>Electric Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{route('electricity.payment.add')}}"><i class="ti-more"></i>Payment</a></li>
-            <li><a href="{{route('unpaid.electricity.view')}}"><i class="ti-more"></i>Unpaid Electricity</a></li>
-
-          </ul>
-        </li>
-
-
-<li class="treeview {{($prefix == '/employee')?'active':''}} "> <!-- condition of the prefix is setups then active or highlights this-->
-          <a href="#">
-             <span>Deep Well Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="ti-more"></i>Employee Registration</a></li>
-          </ul>
-       </li>
-
-
-
     </section>
   
   <div class="sidebar-footer">

@@ -6,70 +6,65 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Tenant;
-use App\Models\User;
-
-use Nexmo\Laravel\Facade\Nexmo;
-
-use App\Notifications\CustomSmsNotification;
 
 class TenantRegistrationController extends Controller
 {
 
 
-public function TenantView(){
+    public function TenantView(){
 
-            $alldata = Tenant::all();
-        return view('backend.tenant.tenant_registration.tenant_view', compact('alldata'));
+             $alldata = Tenant::all();
+            return view('backend.tenant.tenant_view', compact('alldata'));
+    }
 
+    public function TenantAdd(){
 
+            return view('backend.tenant.tenant_add');
+    }
 
+    public function TenantStore(Request $request){
+
+            $data = new Tenant();
+            $data->name = $request->name;
+            $data->save();
+                
+            $notification = array(
+                'message' => 'Tenant Registered Successfully',
+                'alert-type' => 'success'  //success variable came from admin.blade.php in java script toastr
+            );
+            return redirect()->route('tenant.view')->with($notification);
     }
 
 
-public function TenantEdit(Request $request){
+    public function TenantEdit($tenant_id){
 
-
- 
-
-
-
-            //return redirect()->route('dashboard');
-
-}
-
-
-public function TenantStore(Request $request){
-
-$message = "hi";
-
-\Notification::send(User::all(), new CustomSmsNotification($message));
-
-        $data = new Tenant();
-        $data->name = $request->business_name;
-        $data->owner = $request->owner_name;
-        $data->from = date('Y-m-d',strtotime($request->from));
-        $data->to = date('Y-m-d',strtotime($request->to));
-        $data->gross = $request->amount;
-        $data->save();
-            
-
-         //$number = ['639989419002', '639153588103'];
-        //for($i=0; $i < count($number); $i++){
-        //Nexmo::message()->send([
-          //  'to' => $number[$i],
-            //'from' => '639153588103',
-            //'text' => 'for loop nexmo'
-        //]);
-
-        //}
-
-        $notification = array(
-            'message' => 'Tenant Register Successfully',
-            'alert-type' => 'success'  //success variable came from admin.blade.php in java script toastr
-        );
-        return redirect()->route('dashboard')->with($notification);
-
+            $data = Tenant::find($tenant_id);
+            return view('backend.tenant.tenant_registration.tenant_edit', compact('data'));
     }
 
 
-}
+    public function TenantUpdate(Request $request, $tenant_id){
+          $data = Tenant::find($tenant_id);
+          $data->name = $request->name;
+          $data->save();
+
+          $notification = array(
+                'message' => 'Tenant Updated Successfully',
+                'alert-type' => 'success'  //success variable came from admin.blade.php in java script toastr
+            );
+           return redirect()->route('tenant.view')->with($notification);
+    }
+
+    public function TenantDelete($tenant_id){
+
+          $data = Tenant::find($tenant_id);
+          $data->delete();
+
+          $notification = array(
+                'message' => 'Tenant Deleted Successfully',
+                'alert-type' => 'success'  //success variable came from admin.blade.php in java script toastr
+            );
+           return redirect()->route('tenant.view')->with($notification);
+    }
+
+}//end class

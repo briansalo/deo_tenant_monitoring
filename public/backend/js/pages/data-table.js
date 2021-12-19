@@ -9,9 +9,9 @@ $(function () {
     $('#example1').DataTable();
     $('#example2').DataTable({
       'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'order'    : [[ 0, "desc" ]],
       'info'        : true,
       'autoWidth'   : false
     });

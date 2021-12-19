@@ -17,7 +17,6 @@ class CreateUnpaidRentalsTable extends Migration
             $table->id();
             $table->integer('tenant_id');
             $table->date('month')->nullable();
-            $table->double('amount')->nullable();
             $table->timestamps();
         });
     }

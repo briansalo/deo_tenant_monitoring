@@ -15,14 +15,14 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
-            $table->tinyInteger('billing_id')->comment('0=rental, 1=electric, 2=water');
+            $table->integer('tenant_id')->nullable();
+            $table->tinyInteger('billing_id')->comment('1=rental, 2=electric, 3=water')->nullable();
             $table->date('month')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->integer('or_number')->nullable();
-            $table->double('amount')->nullable();
-            $table->tinyInteger('status')->comment('0=paid, 1=partial')->nullable();
+            $table->integer('ar_number')->nullable();
+            $table->tinyInteger('status')->comment('0=paid, 1=partial, 2=cancel_OR')->nullable();
 
             $table->timestamps();
         });
