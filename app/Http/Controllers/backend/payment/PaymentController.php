@@ -33,7 +33,7 @@ class PaymentController extends Controller
                 $data['ar_number'] = $AR+1;     
         }//end if
 
-        return view('backend.payment.payment_add', $data);
+        return view('backend.Payment.payment_add', $data);
 
  }
 

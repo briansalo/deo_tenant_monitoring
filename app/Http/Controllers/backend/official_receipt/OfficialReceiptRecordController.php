@@ -16,7 +16,7 @@ class OfficialReceiptRecordController extends Controller
 
             $data['allrecord'] = Payment::whereNotNull('or_number')->get();
 
-             return view('backend.official_receipt.officialreceipt_view', $data);
+             return view('backend.Official_receipt.officialreceipt_view', $data);
      }
 
 

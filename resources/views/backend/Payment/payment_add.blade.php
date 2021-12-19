@@ -113,7 +113,7 @@
 				
 							<div class="col-md-4">
 									<div class="form-group">
-										<h5>From <span class="text-danger">*</span></h5>
+										<h5>From: <span class="text-danger">*</span></h5>
 											<div class="controls">
 												<input type="date" name="from" id="from" class="form-control">
 											</div>
@@ -122,7 +122,7 @@
 
 							<div class="col-md-4">
 								<div class="form-group">
-									<h5>To <span class="text-danger">*</span></h5>
+									<h5>To: <span class="text-danger">*</span></h5>
 									<div class="controls">
 										<input type="date" name="to" id="to" class="form-control">
 									</div>
