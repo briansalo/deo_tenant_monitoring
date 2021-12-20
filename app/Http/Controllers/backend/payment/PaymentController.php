@@ -16,9 +16,10 @@ class PaymentController extends Controller
 
         $check_or= Payment::orderBy('or_number','DESC')->first();
         $check_ar= Payment::orderBy('ar_number','DESC')->first();
+        //dd($check_or->or_number);
 
         //check first if the database is empty or not. cause in this case we are depending on database
-        if($check_or== null or $check_or->or_number == null){
+        if(empty($check_or) or empty($check_or->or_number)){
                 $data['or_number'] = 'null';
         }else{
                 //get the or number that last save in table payment
@@ -26,7 +27,7 @@ class PaymentController extends Controller
                 $data['or_number'] = $OR+1;
         }//end if
 
-         if($check_ar == null or $check_ar->ar_number == null){
+         if(empty($check_ar) or empty($check_ar->ar_number)){
                   $data['ar_number'] = 'null';
          }else{
                 $AR= Payment::select('ar_number')->orderBy('ar_number','DESC')->first()->ar_number;
