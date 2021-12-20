@@ -23,14 +23,14 @@ class PaymentController extends Controller
                 $or_number = 'null';
         }else{
                 //get the or number that last save in table payment
-                $OR= Payment::select('or_number')->orderBy('or_number','DESC')->first()->or_number;
+                $OR= Payment::whereNotNull('or_number')->orderBy('or_number','DESC')->first()->or_number;
                 $or_number = $OR+1;
         }//end if
 
          if(empty($check_ar) or empty($check_ar->ar_number)){
                   $ar_number = 'null';
          }else{
-                $AR= Payment::select('ar_number')->orderBy('ar_number','DESC')->first()->ar_number;
+                $AR= Payment::whereNotNull('ar_number')->orderBy('ar_number','DESC')->first()->ar_number;
                 $ar_number = $AR+1;     
         }//end if
 
