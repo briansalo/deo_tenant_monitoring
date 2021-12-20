@@ -20,7 +20,7 @@
 									  <table id="example2" class="table table-bordered table-striped">
 											<thead>
 												<tr>
-													<th>OR#</th>
+													<th>AR#</th>
 													<th>Tenant</th>
 													<th>Bill</th>
 													<th>Month</th>

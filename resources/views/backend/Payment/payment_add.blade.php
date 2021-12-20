@@ -53,7 +53,7 @@
 							<div class="col-md-4">
 									<div class="" id="or_number">
 										<h5>OR#<span class="text-danger">*</span></h5>
-											@if($or_number == "null")
+											@if($or_number == 'null')
 												<input type="text" name="or_number" id="or_number_null" class="form-control">
 											@else
 												<input type="text" name="or_number_disable" value="{{$or_number}}" class="form-control" disabled="">
