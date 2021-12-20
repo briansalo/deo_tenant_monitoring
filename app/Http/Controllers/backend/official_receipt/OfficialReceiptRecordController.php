@@ -26,7 +26,7 @@ class OfficialReceiptRecordController extends Controller
 
            $data['official_receipt'] = Payment::where('or_number',$or_number)->get();
 
-           return view('backend.official_receipt.officialreceipt_edit', $data);
+           return view('backend.Official_receipt.officialreceipt_edit', $data);
      }
 
 

@@ -44,7 +44,7 @@ public function UnpaidRentalView(){
 
              // i use wherebetween here in able to limit the maximum month which is only this current month.  incase if the tenant pay in advance then we dont have a problem
              $database = payment::where('tenant_id', $row->tenant_id)
-                  ->whereBetween('month', [$first_date, $newtoday])
+                  ->whereBetween('month', [$first_date->month, $newtoday])
                   ->where('billing_id','1')
                   ->where('status', '0')
                   ->get(); 
