@@ -12,7 +12,7 @@ class PaymentController extends Controller
 {
 
  public function PaymentAdd(){
-    $data['alltenant'] = Tenant::all();
+    $alltenant = Tenant::all();
 
         $check_or= Payment::orderBy('or_number','DESC')->first();
         $check_ar= Payment::orderBy('ar_number','DESC')->first();
@@ -20,21 +20,21 @@ class PaymentController extends Controller
 
         //check first if the database is empty or not. cause in this case we are depending on database
         if(empty($check_or) or empty($check_or->or_number)){
-                $data['or_number'] = 'null';
+                $or_number = 'null';
         }else{
                 //get the or number that last save in table payment
                 $OR= Payment::select('or_number')->orderBy('or_number','DESC')->first()->or_number;
-                $data['or_number'] = $OR+1;
+                $or_number = $OR+1;
         }//end if
 
          if(empty($check_ar) or empty($check_ar->ar_number)){
-                  $data['ar_number'] = 'null';
+                  $ar_number = 'null';
          }else{
                 $AR= Payment::select('ar_number')->orderBy('ar_number','DESC')->first()->ar_number;
-                $data['ar_number'] = $AR+1;     
+                $ar_number = $AR+1;     
         }//end if
 
-        return view('backend.Payment.payment_add', $data);
+        return view('backend.Payment.payment_add', compact('alltenant','or_number', 'ar_number'));
 
  }
 
