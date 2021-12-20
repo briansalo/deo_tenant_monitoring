@@ -16,7 +16,6 @@ class PaymentController extends Controller
 
         $check_or= Payment::whereNotNull('or_number')->orderBy('or_number','DESC')->first();
         $check_ar= Payment::whereNotNull('ar_number')->orderBy('ar_number','DESC')->first();
-        //dd($check_or);
 
         //check first if the database is empty or not. cause in this case we are depending on database
         if(empty($check_or) or empty($check_or->or_number)){
