@@ -22,7 +22,7 @@ class UnpaidElectricityController extends Controller
                  //for more explanation in join table heres the link https://www.youtube.com/watch?v=wkNkgkFePTg
                    $alldata = Payment::join('tenants','payments.tenant_id','=','tenants.id')
                         ->where('tenants.status',1)
-                        ->where('payments.billing_id',1)
+                        ->where('payments.billing_id',2)
                         ->where('payments.status', 0)
                         ->select('payments.tenant_id')
                         ->groupBy('payments.tenant_id')
