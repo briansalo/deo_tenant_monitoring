@@ -58,7 +58,8 @@ Route::prefix('tenant')->group(function(){
     Route::get('/tenant_edit/{tenant_id}', [TenantRegistrationController::class, 'TenantEdit'])->name('tenant.edit');
     Route::post('/tenant_update/{tenant_id}', [TenantRegistrationController::class, 'TenantUpdate'])->name('tenant.update');
 
-    Route::get('/tenant_delete/{tenant_id}', [TenantRegistrationController::class, 'TenantDelete'])->name('tenant.delete');
+    Route::get('/tenant_deactivate/{tenant_id}', [TenantRegistrationController::class, 'TenantDeactivate'])->name('tenant.deactivate');
+    Route::get('/tenant_activate/{tenant_id}', [TenantRegistrationController::class, 'TenantActivate'])->name('tenant.activate');
 
  
 }); // end of tenant prefix
@@ -121,5 +122,5 @@ Route::prefix('to_do_list')->group(function(){
     Route::get('/to_do/delete/{tenant_id}', [ToDoRegisterController::class, 'TodoDelete'])->name('to_do.delete');
 
  
-}); // end of tenant prefix
+}); // end of todo prefix
 

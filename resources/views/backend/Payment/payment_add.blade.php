@@ -149,6 +149,9 @@
 								</div>
 							</div><!-- end col md 6 -->
 						</div> <!--end row -->
+						@error('month')
+						asd
+						@enderror
 
 					  <div class="row">
 							<div class="col-md-2">

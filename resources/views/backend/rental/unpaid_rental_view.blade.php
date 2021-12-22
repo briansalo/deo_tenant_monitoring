@@ -72,7 +72,7 @@
 
 														<td>
 															@foreach($merge[$key] as $number => $lastmerge)
-												 					{{$merge[$key][$number]}},
+												 					{{$merge[$key][$number]}}-
 												 			@endforeach<b>
 														</td>
 														<td>

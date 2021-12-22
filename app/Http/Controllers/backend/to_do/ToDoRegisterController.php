@@ -31,7 +31,7 @@ class ToDoRegisterController extends Controller
             $data->save();
                 
             $notification = array(
-                'message' => 'Tenant Registered Successfully',
+                'message' => 'New To Do Inserted Successfully',
                 'alert-type' => 'success'  //success variable came from admin.blade.php in java script toastr
             );
             return redirect()->route('to_do.view')->with($notification);

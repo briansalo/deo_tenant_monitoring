@@ -11,20 +11,24 @@ use App\Models\Tenant;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 
+
 class DeepWellController extends Controller
 {
     public function UnpaidDeepWellView(){
 
             $get_latest_month = [];
-
-            $alldata = Payment::select('tenant_id')
-            ->groupBy('tenant_id')
-            ->where('billing_id', '3')
-            ->where('status', '0')
+            
+            //i use join here cause we need to retrieve data from payment table for those tenant status is active in tenant table
+            //for more explanation in join table heres the link https://www.youtube.com/watch?v=wkNkgkFePTg
+            $alldata = Payment::join('tenants','payments.tenant_id','=','tenants.id')
+            ->where('tenants.status',1)
+            ->where('payments.billing_id',1)
+            ->where('payments.status', 0)
+            ->select('payments.tenant_id')
+            ->groupBy('payments.tenant_id')
             ->get();
 
            foreach($alldata as $row){
-
                 $latest_date = payment::where('tenant_id', $row->tenant_id)
                 ->where('billing_id', '3')
                 ->where('status', '0')
@@ -47,7 +51,7 @@ class DeepWellController extends Controller
                $result = CarbonPeriod::create($added_month, '1 month', $today);
                        $list=[];
                      foreach ($result as $month){         
-                        $list[]= $month->format('F'); // format in month because we are only based on month
+                        $list[]= $month->format('F Y'); // format in month because we are only based on month
                      }   
 
                      $unpaid_month[] = collect($list);

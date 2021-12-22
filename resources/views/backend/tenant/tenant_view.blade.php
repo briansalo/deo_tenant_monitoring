@@ -26,7 +26,7 @@
 							<tr>
 								<th width="15%">SL</th>
 								<th>Tenant Name</th>
-								<th width="15%">Action</th>
+								<th width="25%">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -37,7 +37,12 @@
 								<td>
 										<a href="{{route('tenant.edit', $data->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 										</a>
-										<a href="{{route('tenant.delete', $data->id)}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+										@if($data->status==0)
+										<a href="{{route('tenant.activate', $data->id)}}" class="btn btn-success"><i class="fa fa-check-circle" aria-hidden="true"> Activate</i></a>
+										@else
+										<a href="{{route('tenant.deactivate', $data->id)}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Deactivate</i></a>											
+										@endif
+
 								</td>
 							</tr>
 							@endforeach

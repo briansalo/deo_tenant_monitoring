@@ -39,7 +39,7 @@ class TenantRegistrationController extends Controller
     public function TenantEdit($tenant_id){
 
             $data = Tenant::find($tenant_id);
-            return view('backend.tenant.tenant_registration.tenant_edit', compact('data'));
+            return view('backend.tenant.tenant_edit', compact('data'));
     }
 
 
@@ -55,16 +55,25 @@ class TenantRegistrationController extends Controller
            return redirect()->route('tenant.view')->with($notification);
     }
 
-    public function TenantDelete($tenant_id){
+    public function TenantDeactivate($tenant_id){
 
-          $data = Tenant::find($tenant_id);
-          $data->delete();
-
+          Tenant::where('id', $tenant_id)->update(['status'=>0]);
+          
           $notification = array(
-                'message' => 'Tenant Deleted Successfully',
+                'message' => 'Tenant Deactivated Successfully',
                 'alert-type' => 'success'  //success variable came from admin.blade.php in java script toastr
             );
            return redirect()->route('tenant.view')->with($notification);
     }
 
+    public function TenantActivate($tenant_id){
+
+          Tenant::where('id', $tenant_id)->update(['status'=>1]);
+          
+          $notification = array(
+                'message' => 'Tenant Activated Successfully',
+                'alert-type' => 'success'  //success variable came from admin.blade.php in java script toastr
+            );
+           return redirect()->route('tenant.view')->with($notification);
+    }
 }//end class

@@ -29,7 +29,7 @@
 								<td>{{$data->tenant->name}}</td>
 								<td>
 									@foreach($unpaid_month[$key] as $number => $lastmerge)
-									 	{{$unpaid_month[$key][$number]}},
+									 	{{$unpaid_month[$key][$number]}}-
 									 @endforeach<b>
 								</td>
 							</tr>

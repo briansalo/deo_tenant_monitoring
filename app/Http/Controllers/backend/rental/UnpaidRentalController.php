@@ -12,7 +12,6 @@ use App\Models\UnpaidRental;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 
-
 class UnpaidRentalController extends Controller
 {
 
@@ -27,14 +26,18 @@ public function UnpaidRentalView(){
        $lastresult = [];
        $get_tenant=[];
 
-            $alldata = Payment::select('tenant_id')
-            ->groupBy('tenant_id')
-            ->where('billing_id', '1')
-            ->where('status', '0')
+            //i use join here cause we need to retrieve data from payment table for those tenant status is active in tenant table
+            //for more explanation in join table heres the link https://www.youtube.com/watch?v=wkNkgkFePTg
+            $users = Payment::join('tenants','payments.tenant_id','=','tenants.id')
+            ->where('tenants.status',1)
+            ->where('payments.billing_id',1)
+            ->where('payments.status', 0)
+            ->select('payments.tenant_id')
+            ->groupBy('payments.tenant_id')
             ->get();
             
-       foreach($alldata as $row){
-
+       foreach($users as $row){
+    
                // this is all the firstdate of paying of all tenant
              $first_date = payment::where('tenant_id', $row->tenant_id)
              ->where('billing_id', '1')
@@ -65,18 +68,19 @@ public function UnpaidRentalView(){
                     $result = CarbonPeriod::create($first, '1 month', $newtoday); // i use $newtoday variable instead of $today variable because $today variable is adding month now because of $months_diff variable 
 
                      foreach ($result as $dt){         
-                        $list[]= $dt->format('F'); // format in month because we are only based on month
+                        $list[]= $dt->format('F Y'); // format in month because we are only based on month
                      }
 
                     $month=[];
 
                         //--------------------------get all the date of paying --------------------------------------//
                     foreach($database as $row){
-                        $month[]= carbon::create($row->month)->format('F');
+                        $month[]= carbon::create($row->month)->format('F Y');
                     }
 
     //---------- get all the value from variable $list and variable $month and then retrieve only the unmatch value-------------//
                     $lastresult[] = array_diff($list, $month);
+                  
             
             }// end if
 
@@ -93,7 +97,6 @@ public function UnpaidRentalView(){
             for($i=0; $i<count($lastresult); $i++){
                  $merge[] = array_merge($lastresult[$i]); // the $lastresult variable the ouput of this array the number is not arrange that's why i use array merge to assort the number. just try to die dump the $lastresult for more clear info
             }
-
 
 
 
@@ -164,7 +167,7 @@ public function UnpaidRentalComputePenalty(Request $request){
                     $output[]= '
                     <tr>
                     
-                        <td style="color: white">'. carbon::create($row->month)->format('F').'</td>
+                        <td style="color: white">'. carbon::create($row->month)->format('F Y').'</td>
                         <td style="color: white">'. $per_day." per day".'</td>
                         <td style="color: white">'. $diff. "days".'</td>
                         <td style="color: white">'. "₱".number_format($total,).'</td>
