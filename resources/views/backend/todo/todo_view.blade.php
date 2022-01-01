@@ -17,8 +17,8 @@
 					  <table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th width="5%">SL</th>
-								<th>Task</th>
+								<th style="color: white;" width="5%">SL</th>
+								<th style="color: white;">Task</th>
 								<th></th>
 							</tr>
 						</thead>

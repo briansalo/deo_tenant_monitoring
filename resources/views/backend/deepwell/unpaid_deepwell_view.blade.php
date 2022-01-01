@@ -17,9 +17,9 @@
 					  <table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th width="5%">SL</th>
-								<th>Tenant</th>
-								<th>Unpaid Month</th>
+								<th width="5%" style="color: white;">SL</th>
+								<th style="color: white;">Tenant</th>
+								<th style="color: white;">Unpaid Month</th>
 							</tr>
 						</thead>
 						<tbody>

@@ -15,8 +15,8 @@
         </button>
       </div>
 
- 		 <div class="modal-body">
-					  <table class="table table-bordered table-striped" style="width: 100%">
+ 		 <div class="modal-body table-responsive-sm">
+					  <table class="table table-bordered table-striped " style="width: 100%">
 								<thead>
 										<tr>
 	  										<th style="color: white" width="20%">Month</th>
@@ -54,14 +54,14 @@
 						 	 <h3 class="box-title">Unpaid Rental</h3>
 						</div>
 
-						<div class="box-body">
+						<div class="box-body ">
 								  <table id="example1" class="table table-bordered table-striped">
 										<thead>
 											<tr>
-													<th width="5%">SL</th>
-													<th>Tenant</th>
-													<th>Unpaid Month</th>
-													<th>Penalty</th>
+													<th width="5%" style="color: white;">SL</th>
+													<th style="color: white;">Tenant</th>
+													<th style="color: white;">Unpaid Month:</th>
+													<th style="color: white;">Penalty</th>
 											</tr>
 										</thead>
 										<tbody>

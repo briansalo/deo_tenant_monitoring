@@ -20,13 +20,13 @@
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
-					<div class="table-responsive">
+					<div class="">
 					  <table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th width="15%">SL</th>
-								<th>Tenant Name</th>
-								<th width="25%">Action</th>
+								<th style="color: white;" width="15%">SL</th>
+								<th style="color: white;">Tenant Name</th>
+								<th style="color: white;" width="25%">Action</th>
 							</tr>
 						</thead>
 						<tbody>

@@ -6,14 +6,17 @@
 $(function () {
     "use strict";
 
-    $('#example1').DataTable();
+    $('#example1').DataTable({
+    	responsive: true
+    });
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,
       'order'    : [[ 0, "desc" ]],
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      'responsive'  : true
     });
 	
 	

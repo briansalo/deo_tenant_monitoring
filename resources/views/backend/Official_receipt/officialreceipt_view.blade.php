@@ -16,15 +16,15 @@
 								</div><!-- /.box-header -->
 
 								<div class="box-body">
-									<div class="table-responsive">
+									<div class="">
 									  <table id="example2" class="table table-bordered table-striped">
 											<thead>
 												<tr>
-													<th>OR#</th>
-													<th>Tenant</th>
-													<th>Bill</th>
-													<th>Month</th>
-													<th>Status</th>
+													<th style="color: white;">OR#</th>
+													<th style="color: white;">Tenant</th>
+													<th style="color: white;">Bill</th>
+													<th style="color: white;">Month</th>
+													<th style="color: white;">Status</th>
 													<th></th>
 												</tr>
 											</thead>

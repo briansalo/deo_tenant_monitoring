@@ -23,7 +23,7 @@
 
 			      <div class="row">
 
-				  		<div class="col-md-4">
+				  		<div class="col-12 col-md-4">
 						  		<div class="form-group">
 										<h5>Name <span class="text-danger"> </span></h5>
 											<div class="controls">
@@ -50,7 +50,7 @@
 								  </div>
 							</div><!-- end col md 4 -->
 
-							<div class="col-md-4">
+							<div class="col-6 col-md-4">
 							  <div class="form-group">
 								  <h5>OR#<span class="text-danger">*</span></h5>
 									<div class="controls">
@@ -60,7 +60,7 @@
 							  </div>
 							</div><!-- end col md 4 -->							
 
-							<div class="col-md-4 " >
+							<div class="col-6 col-md-4" >
 								<h5>Status:</h5>
 									<div class="form-group">
 												<input name="status" type="radio" value="0"  id="paid"
@@ -87,7 +87,7 @@
 									 		<!---this input type for jquery-->
 											<input type="hidden" name="count" id="count" value="{{count($official_receipt)}}">
 
-											<div class="col-md-4">
+											<div class="col-6 col-md-4">
 												<div class="form-group">
 													<h5>Month <span class="text-danger">*</span></h5>
 														<div class="controls">
@@ -160,7 +160,7 @@
   		<div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
   			<div class="row">
 
-							<div class="col-md-4">
+							<div class="col-6 col-md-4">
 								<div class="form-group">
 									<h5>Month <span class="text-danger">*</span></h5>
 									<div class="controls">

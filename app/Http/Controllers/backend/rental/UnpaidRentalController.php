@@ -95,9 +95,9 @@ public function UnpaidRentalView(){
 
             $merge=[];
             for($i=0; $i<count($lastresult); $i++){
-                 $merge[] = array_merge($lastresult[$i]); // the $lastresult variable the ouput of this array the number is not arrange that's why i use array merge to assort the number. just try to die dump the $lastresult for more clear info
+                 $merge[] = array_merge($lastresult[$i]); // the $lastresult variable number of array is not arrange that's why i use array merge to assort the number. just try to die dump the $lastresult for more clear info
             }
-
+dd($merge);
 
 
 ///------------insert to the databasefor those tenant unpaid for their rental so we can easy to compute the penalty----------------///
