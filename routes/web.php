@@ -33,11 +33,8 @@ use App\Http\Controllers\backend\official_receipt\OfficialReceiptRecordControlle
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('', function () {
     return redirect()->route('tenant.view');
 })->name('dashboard');
 
