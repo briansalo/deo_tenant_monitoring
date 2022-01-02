@@ -56,8 +56,8 @@
 						 	 <h3 class="box-title">Unpaid Rental</h3>
 						</div>
 
-						<div class="box-body table-responsive">
-								  <table id="example1" class="table table-bordered table-striped" style="width:900px !important;">
+						<div class="box-body table-responsive" >
+								  <table id="example1" class="table table-bordered table-striped" >
 										<thead>
 											<tr>
 													<th width="5%" style="color: white;">SL</th>

@@ -4,14 +4,15 @@
 //Primary use:   Used only for the Data Table
 
 $(function () {
+	    $.fn.DataTable.ext.pager.numbers_length = 5;
     "use strict";
-    $.fn.DataTable.ext.pager.numbers_length = 5;
+
     $('#example1').DataTable({
     	'pagingType': "simple_numbers",
     	'responsive': true,
 
     });
-    $.fn.DataTable.ext.pager.numbers_length = 5;
+
     $('#example2').DataTable({
       'pagingType': $(window).width() < 768 ? "simple" : "simple_numbers",
       'paging'      : true,
