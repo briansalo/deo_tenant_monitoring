@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend\rental;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 use App\Models\Payment;
 use App\Models\Tenant;
 use App\Models\UnpaidRental;
@@ -81,7 +82,7 @@ public function UnpaidRentalView(){
     //---------- get all the value from variable $list and variable $month and then retrieve only the unmatch value-------------//
                     $lastresult[] = array_diff($list, $month);
                   
-            
+            dd($month);
             }// end if
 
         }// end for each
@@ -91,13 +92,15 @@ public function UnpaidRentalView(){
             ->groupBy('tenant_id')
             ->whereIn('tenant_id', $get_tenant)
             ->get();
+                //$retrieve = User::where('id', $get_tenant)->get();
 
 
             $merge=[];
             for($i=0; $i<count($lastresult); $i++){
                  $merge[] = array_merge($lastresult[$i]); // the $lastresult variable number of array is not arrange that's why i use array merge to assort the number. just try to die dump the $lastresult for more clear info
             }
-dd($month);
+//dd($retrieve[0]->tenant->name);
+          //  dd($list);
 
 
 ///------------insert to the databasefor those tenant unpaid for their rental so we can easy to compute the penalty----------------///

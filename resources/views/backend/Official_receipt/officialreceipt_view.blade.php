@@ -49,11 +49,11 @@
 										
 														@if($record->billing_id == 1)
 															<td>
-																{{ \Carbon\Carbon::parse($record->month)->format('F')}}
+																{{ \Carbon\Carbon::parse($record->month)->format('F Y')}}
 															</td>
 														@elseif($record->billing_id==3)
 															<td>
-																{{ \Carbon\Carbon::parse($record->start_date)->format('F')}} 1  To {{ \Carbon\Carbon::parse($record->end_date)->format('F')}} 30
+																{{ \Carbon\Carbon::parse($record->start_date)->format('Y F')}} 1  - {{ \Carbon\Carbon::parse($record->end_date)->format('Y F')}} 30
 															</td>
 														@else
 															<td></td>	
