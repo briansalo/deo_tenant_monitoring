@@ -32,9 +32,6 @@ use App\Http\Controllers\backend\official_receipt\OfficialReceiptRecordControlle
 | contains the "web" middleware group. Now create something great!
 |
 */
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
 
 Route::get('/', function () {
     return view('auth.login');
