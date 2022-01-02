@@ -13,7 +13,7 @@ $(function () {
     });
     $.fn.DataTable.ext.pager.numbers_length = 5;
     $('#example2').DataTable({
-      'pagingType': "simple_numbers",
+      'pagingType': $(window).width() < 768 ? "simple" : "simple_numbers",
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,
