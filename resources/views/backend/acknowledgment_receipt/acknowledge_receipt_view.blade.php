@@ -15,8 +15,8 @@
 								  	<h3 class="box-title">Acknowledgement Receipt Record</h3>
 								</div><!-- /.box-header -->
 
-								<div class="box-body">
-									<div class="table-responsive">
+								<div class="box-body table-responsive">
+									
 									  <table id="example2" class="table table-bordered table-striped">
 											<thead>
 												<tr>
@@ -66,7 +66,7 @@
 											</tbody>
 
 									  </table>
-									</div>
+									
 								</div>
 							<!-- /.box-body -->
 						  </div>
