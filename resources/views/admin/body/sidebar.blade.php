@@ -12,7 +12,7 @@
     
         <div class="user-profile">
             <div class="ulogo">
-               <a href="index.html">
+               <a href="#">
                 <!-- logo for regular state and mobile devices -->
                  <div class="d-flex align-items-center justify-content-center">           
                     <img src="../images/logo-dark.png" alt="">
@@ -26,7 +26,7 @@
       <ul class="sidebar-menu" data-widget="tree">  
       
               <li class="{{($route == 'dashboard')?'active':''}}">
-                    <a href="{{ route('dashboard')}}">
+                    <a href="#">
                       <i data-feather="pie-chart"></i>
                         <span>Dashboard</span>
                     </a>
