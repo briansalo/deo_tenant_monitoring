@@ -6,7 +6,7 @@
 
  <div class="content-wrapper">
 	  <div class="container-full">
-			<section class="content">
+
 		 	 <div class="row">
 				  <div class="col-12">
 
@@ -17,7 +17,7 @@
 
 								
 									<div class="table-responsive">
-									  <table id="example2" class="table table-bordered table-striped" style="width:900px !important;">
+									  <table id="example2" class="table table-bordered table-striped">
 											<thead>
 												<tr>
 													<th style="color: white;">OR#</th>
@@ -86,11 +86,25 @@
 			<!-- /.col -->
 		  </div>
 		  <!-- /.row -->
-		</section>
+	
 		<!-- /.content -->
 	  
   </div>
 </div>
 
-
+<script>
+$(document).ready(function() {
+    // This will fire when document is ready:
+    $(window).resize(function() {
+        // This will fire each time the window is resized:
+        if($(window).width() >= 1024) {
+            // if larger or equal
+            $('.element').show();
+        } else {
+            // if smaller
+            $('.element').hide();
+        }
+    }).resize(); // This will simulate a resize to trigger the initial run.
+});
+</script>
 @endsection
