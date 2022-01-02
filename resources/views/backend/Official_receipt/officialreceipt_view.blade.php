@@ -6,7 +6,7 @@
 
  <div class="content-wrapper">
 	  <div class="container-full">
-
+			<section class="content" id="for_desktop">
 		 	 <div class="row">
 				  <div class="col-12">
 
@@ -86,12 +86,13 @@
 			<!-- /.col -->
 		  </div>
 		  <!-- /.row -->
-	
+		</section>
 		<!-- /.content -->
 	  
   </div>
 </div>
 
+<!--jquery to make it responsive-->
 <script>
 $(document).ready(function() {
     // This will fire when document is ready:
@@ -99,10 +100,10 @@ $(document).ready(function() {
         // This will fire each time the window is resized:
         if($(window).width() >= 1024) {
             // if larger or equal
-            $('.element').show();
+            $("#for_desktop").attr('class', 'content');
         } else {
             // if smaller
-            $('.element').hide();
+            $("#for_desktop").attr('class', '');
         }
     }).resize(); // This will simulate a resize to trigger the initial run.
 });
