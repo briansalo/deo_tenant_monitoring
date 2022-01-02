@@ -35,6 +35,7 @@ public function UnpaidRentalView(){
             ->where('payments.status', 0)
             ->select('payments.tenant_id')
             ->groupBy('payments.tenant_id')
+            ->orderby('payments.tenant_id','asc')
             ->get();
             
        foreach($users as $row){
@@ -91,6 +92,7 @@ public function UnpaidRentalView(){
             $retrieve = Payment::select('tenant_id')
             ->groupBy('tenant_id')
             ->whereIn('tenant_id', $get_tenant)
+            ->orderby('tenant_id','asc')
             ->get();
                 //$retrieve = User::where('id', $get_tenant)->get();
 
@@ -99,7 +101,7 @@ public function UnpaidRentalView(){
             for($i=0; $i<count($lastresult); $i++){
                  $merge[] = array_merge($lastresult[$i]); // the $lastresult variable number of array is not arrange that's why i use array merge to assort the number. just try to die dump the $lastresult for more clear info
             }
-dd($retrieve[0]->tenant->id);
+//dd($retrieve);
           //  dd($list);
 
 
