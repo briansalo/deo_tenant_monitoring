@@ -1,6 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
 
+
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -55,7 +57,7 @@
 						</div>
 
 						<div class="box-body table-responsive">
-								  <table id="example1" class="table table-bordered table-striped">
+								  <table id="example1" class="table table-bordered table-striped" style="width:900px !important;">
 										<thead>
 											<tr>
 													<th width="5%" style="color: white;">SL</th>

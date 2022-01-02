@@ -7,7 +7,9 @@ $(function () {
     "use strict";
     $.fn.DataTable.ext.pager.numbers_length = 5;
     $('#example1').DataTable({
+    	//'pagingType': "listbox",
     	'responsive': true,
+    	
     });
     $('#example2').DataTable({
       'paging'      : true,
