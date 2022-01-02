@@ -83,7 +83,7 @@ public function UnpaidRentalView(){
     //---------- get all the value from variable $list and variable $month and then retrieve only the unmatch value-------------//
                     $lastresult[] = array_diff($list, $month);
                   
-           // dd($get_tenant);
+
             }// end if
 
         }// end for each
@@ -94,15 +94,13 @@ public function UnpaidRentalView(){
             ->whereIn('tenant_id', $get_tenant)
             ->orderby('tenant_id','asc')
             ->get();
-                //$retrieve = User::where('id', $get_tenant)->get();
 
 
             $merge=[];
             for($i=0; $i<count($lastresult); $i++){
                  $merge[] = array_merge($lastresult[$i]); // the $lastresult variable number of array is not arrange that's why i use array merge to assort the number. just try to die dump the $lastresult for more clear info
             }
-//dd($retrieve);
-          //  dd($list);
+
 
 
 ///------------insert to the databasefor those tenant unpaid for their rental so we can easy to compute the penalty----------------///
