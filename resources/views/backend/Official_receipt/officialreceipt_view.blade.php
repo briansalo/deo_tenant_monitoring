@@ -7,7 +7,7 @@
  <div class="content-wrapper">
 	  <div class="container-full">
 			<section class="content">
-		 	 
+		 	 <div class="row">
 				  <div class="col-12">
 
 						 <div class="box">
@@ -17,7 +17,7 @@
 
 								
 									<div class="table-responsive">
-									  <table id="example2" class="table table-bordered table-striped">
+									  <table id="example2" class="table table-bordered table-striped" style="width:900px !important;">
 											<thead>
 												<tr>
 													<th style="color: white;">OR#</th>
@@ -84,7 +84,7 @@
 
 		  	</div>
 			<!-- /.col -->
-		  
+		  </div>
 		  <!-- /.row -->
 		</section>
 		<!-- /.content -->
