@@ -5,7 +5,7 @@
 
 $(function () {
     "use strict";
-
+    $.fn.DataTable.ext.pager.numbers_length = 5;
     $('#example1').DataTable({
     	'responsive': true,
     });
