@@ -4,24 +4,19 @@
 //Primary use:   Used only for the Data Table
 
 $(function () {
-	    $.fn.DataTable.ext.pager.numbers_length = 5;
+
     "use strict";
 
-    $('#example1').DataTable({
-    	'pagingType': "simple_numbers",
-    	'responsive': true,
-
-    });
+    $('#example1').DataTable();
 
     $('#example2').DataTable({
-      'pagingType': $(window).width() < 768 ? "simple" : "simple_numbers",
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,
       'order'    : [[ 0, "desc" ]],
       'info'        : true,
       'autoWidth'   : true,
-      'responsive'  : true
+     
     });
 	
 	

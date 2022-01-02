@@ -20,11 +20,6 @@
 	  <!-- css for toastr or notification messages. no need to change the href unlike others -->
 	 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
      
-<style>
-  body {
-  table-layout: fixed;
-}
-</style>
   </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
