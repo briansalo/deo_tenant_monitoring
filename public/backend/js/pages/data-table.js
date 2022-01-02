@@ -7,10 +7,11 @@ $(function () {
     "use strict";
     $.fn.DataTable.ext.pager.numbers_length = 5;
     $('#example1').DataTable({
-    	'pagingType': "full",
+    	'pagingType': "simple_numbers",
     	'responsive': true,
 
     });
+    $.fn.DataTable.ext.pager.numbers_length = 5;
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': true,
