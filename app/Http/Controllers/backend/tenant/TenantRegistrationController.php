@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 use App\Models\Tenant;
 
+use Session;
+
 class TenantRegistrationController extends Controller
 {
 
 
     public function TenantView(){
-
+      
              $alldata = Tenant::all();
             return view('backend.tenant.tenant_view', compact('alldata'));
     }

@@ -22,6 +22,8 @@ use App\Http\Controllers\backend\to_do\ToDoRegisterController;
 
 use App\Http\Controllers\backend\official_receipt\OfficialReceiptRecordController;
 
+use App\Http\Middleware\Register;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +38,12 @@ use App\Http\Controllers\backend\official_receipt\OfficialReceiptRecordControlle
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return redirect()->route('tenant.view');
-})->name('dashboard');
+});
+
+
+
+
+
 
 
 
