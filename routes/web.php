@@ -34,9 +34,11 @@ use App\Http\Controllers\backend\official_receipt\OfficialReceiptRecordControlle
 */
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return redirect()->route('tenant.view');
 })->name('dashboard');
+
+
 
 
     Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
@@ -45,7 +47,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('', function () {
 
 
 
-Route::prefix('tenant')->group(function(){
+Route::middleware(['auth'])->prefix('tenant')->group(function(){
 
     Route::get('/tenant_view', [TenantRegistrationController::class, 'TenantView'])->name('tenant.view');
 
@@ -62,7 +64,7 @@ Route::prefix('tenant')->group(function(){
 }); // end of tenant prefix
 
 
-Route::prefix('manage')->group(function(){
+Route::middleware(['auth'])->prefix('manage')->group(function(){
 
     //official receipt
     Route::get('/official_receipt/view', [OfficialReceiptRecordController::class, 'OfficialReceiptView'])
@@ -92,7 +94,7 @@ Route::prefix('manage')->group(function(){
 });// manage prefix
 
 
-Route::prefix('unpaid_bill')->group(function(){
+Route::middleware(['auth'])->prefix('unpaid_bill')->group(function(){
 
     Route::get('/unpaid/rental/view', [UnpaidRentalController::class, 'UnpaidRentalView'])->name('unpaid.rental.view');
     Route::get('/unpaid/rental/compute/penalty', [UnpaidRentalController::class, 'UnpaidRentalComputePenalty'])
@@ -109,7 +111,7 @@ Route::prefix('unpaid_bill')->group(function(){
 
 
 
-Route::prefix('to_do_list')->group(function(){
+Route::middleware(['auth'])->prefix('to_do_list')->group(function(){
 
     Route::get('/to_do/view', [ToDoRegisterController::class, 'TodoView'])->name('to_do.view');
 
