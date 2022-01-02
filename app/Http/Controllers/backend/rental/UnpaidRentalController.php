@@ -82,7 +82,7 @@ public function UnpaidRentalView(){
     //---------- get all the value from variable $list and variable $month and then retrieve only the unmatch value-------------//
                     $lastresult[] = array_diff($list, $month);
                   
-            dd($get_tenant);
+           // dd($get_tenant);
             }// end if
 
         }// end for each
@@ -99,7 +99,7 @@ public function UnpaidRentalView(){
             for($i=0; $i<count($lastresult); $i++){
                  $merge[] = array_merge($lastresult[$i]); // the $lastresult variable number of array is not arrange that's why i use array merge to assort the number. just try to die dump the $lastresult for more clear info
             }
-//dd($retrieve[0]->tenant->id);
+dd($retrieve[0]->tenant->id);
           //  dd($list);
 
 
