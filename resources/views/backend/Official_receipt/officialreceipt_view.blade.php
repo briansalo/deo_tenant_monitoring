@@ -16,7 +16,7 @@
 								</div><!-- /.box-header -->
 
 								
-									<div class="table-responsive">
+									<div class="box-body table-responsive">
 									  <table id="example2" class="table table-bordered table-striped">
 											<thead>
 												<tr>
