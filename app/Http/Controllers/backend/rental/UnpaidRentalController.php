@@ -82,7 +82,7 @@ public function UnpaidRentalView(){
     //---------- get all the value from variable $list and variable $month and then retrieve only the unmatch value-------------//
                     $lastresult[] = array_diff($list, $month);
                   
-           // dd($month);
+            dd($list);
             }// end if
 
         }// end for each
