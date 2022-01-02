@@ -7,7 +7,7 @@ $(function () {
     "use strict";
 
     $('#example1').DataTable({
-    	responsive: true
+    	'responsive': true,
     });
     $('#example2').DataTable({
       'paging'      : true,
