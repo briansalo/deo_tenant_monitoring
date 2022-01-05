@@ -37,9 +37,8 @@ use App\Http\Middleware\Register;
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return redirect()->route('tenant.view');
+    return redirect()->route('to_do.view');
 });
-
 
 
 

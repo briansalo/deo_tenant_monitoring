@@ -91,7 +91,7 @@
 					 <div class="add_item">
 						 <div class="row" id="rental">
 					
-								<div class="col-6 col-md-4">
+								<div class="col-8 col-md-4">
 									<div class="form-group">
 										<h5>Month <span class="text-danger">*</span></h5>
 										<div class="controls">
@@ -178,7 +178,7 @@
   		<div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
   			<div class="row">
 
-							<div class="col-6 col-md-4">
+							<div class="col-8 col-md-4">
 								<div class="form-group">
 									<h5>Month <span class="text-danger">*</span></h5>
 									<div class="controls">

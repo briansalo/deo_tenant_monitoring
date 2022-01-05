@@ -99,7 +99,7 @@
 
               <li class="treeview {{($prefix == '/to_do_list')?'active':''}}"> 
                   <a href="#">
-                    <span>To-Do Things</span>
+                    <span>To-Do Things</span> <span class="badge  rounded-pill alert-danger font-weight-bold">{{$count_todo}}</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-right pull-right"></i>
                     </span>

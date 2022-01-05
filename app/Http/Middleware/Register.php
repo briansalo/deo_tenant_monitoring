@@ -16,9 +16,6 @@ class Register
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()){
-        return $next($request);
-        }
-        return 'hi';
+        return redirect('login');
     }
 }
