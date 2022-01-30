@@ -187,7 +187,7 @@
 							  </div>
 							</div><!-- end col md 4 -->
 
-					 		<div class="cold-md-2" style="padding-top:25px;">
+					 		<div class="col-3 cold-md-2" style="padding-top:25px;">
 					 				<span class="btn btn-success addeventmore"><i class="fa fa-plus-circle" ></i></span>
 					 				<span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i>	</span>
 					 		</div>	<!-- end col md 2 -->	

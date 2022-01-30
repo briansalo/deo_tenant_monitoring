@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\todo;
 
+
+
 class ToDoRegisterController extends Controller
 {
     public function TodoView(){
@@ -34,6 +36,8 @@ class ToDoRegisterController extends Controller
                 'message' => 'New To Do Inserted Successfully',
                 'alert-type' => 'success'  //success variable came from admin.blade.php in java script toastr
             );
+
+
             return redirect()->route('to_do.view')->with($notification);
 
     }

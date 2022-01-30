@@ -87,7 +87,7 @@
 									 		<!---this input type for jquery-->
 											<input type="hidden" name="count" id="count" value="{{count($official_receipt)}}">
 
-											<div class="col-6 col-md-4">
+											<div class="col-9 col-md-4">
 												<div class="form-group">
 													<h5>Month <span class="text-danger">*</span></h5>
 														<div class="controls">
@@ -100,7 +100,7 @@
 												</div>
 											</div><!-- end col md 6 -->
 
-									 		<div class="cold-md-2" style="padding-top:25px;">
+									 		<div class="col-3 cold-md-2" style="padding-top:25px;">
 									 				<span class="btn btn-success addeventmore"><i class="fa fa-plus-circle" ></i></span>
 									 				<span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i>	</span>
 									 		</div>	<!-- end col md 2 -->	
@@ -160,7 +160,7 @@
   		<div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
   			<div class="row">
 
-							<div class="col-6 col-md-4">
+							<div class="col-9 col-md-4">
 								<div class="form-group">
 									<h5>Month <span class="text-danger">*</span></h5>
 									<div class="controls">
@@ -169,7 +169,7 @@
 							  </div>
 							</div><!-- end col md 4 -->
 
-					 		<div class="cold-md-2" style="padding-top:25px;">
+					 		<div class="col-3 cold-md-2" style="padding-top:25px;">
 					 				<span class="btn btn-success addeventmore"><i class="fa fa-plus-circle" ></i></span>
 					 				<span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i>	</span>
 					 		</div>	<!-- end col md 2 -->	
