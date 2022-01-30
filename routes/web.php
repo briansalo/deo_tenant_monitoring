@@ -58,13 +58,15 @@ Route::middleware(['auth'])->prefix('tenant')->group(function(){
     Route::get('/tenant_view', [TenantRegistrationController::class, 'TenantView'])->name('tenant.view');
 
     Route::get('/tenant_add', [TenantRegistrationController::class, 'TenantAdd'])->name('tenant.add');
-    Route::post('/tenant_store', [TenantRegistrationController::class, 'TenantStore'])->name('tenant.store');
+    Route::post('/tenant_store', [TenantRegistrationController::class, 'TenantStore'])->name('tenant.store')->middleware('admin');
 
     Route::get('/tenant_edit/{tenant_id}', [TenantRegistrationController::class, 'TenantEdit'])->name('tenant.edit');
-    Route::post('/tenant_update/{tenant_id}', [TenantRegistrationController::class, 'TenantUpdate'])->name('tenant.update');
+    Route::post('/tenant_update/{tenant_id}', [TenantRegistrationController::class, 'TenantUpdate'])->name('tenant.update')->middleware('admin');
 
-    Route::get('/tenant_deactivate/{tenant_id}', [TenantRegistrationController::class, 'TenantDeactivate'])->name('tenant.deactivate');
-    Route::get('/tenant_activate/{tenant_id}', [TenantRegistrationController::class, 'TenantActivate'])->name('tenant.activate');
+    Route::get('/tenant_deactivate/{tenant_id}', [TenantRegistrationController::class, 'TenantDeactivate'])
+        ->name('tenant.deactivate')->middleware('admin');
+    Route::get('/tenant_activate/{tenant_id}', [TenantRegistrationController::class, 'TenantActivate'])
+    ->name('tenant.activate')->middleware('admin');
 
  
 }); // end of tenant prefix
@@ -79,7 +81,7 @@ Route::middleware(['auth'])->prefix('manage')->group(function(){
     Route::get('/official_receipt/edit/{or_number}', [OfficialReceiptRecordController::class, 'OfficialReceiptEdit'])
         ->name('official.receipt.edit');
     Route::post('/official_receipt/update/{or_number}', [OfficialReceiptRecordController::class, 'OfficialReceiptUpdate'])
-        ->name('official.receipt.update');
+        ->name('official.receipt.update')->middleware('admin');
 
        //acknowlegment receipt 
     Route::get('/acknowledgment_receipt/view', [AcknowledgmentReceiptController::class, 'AcknowledgmentReceiptView'])
@@ -88,14 +90,14 @@ Route::middleware(['auth'])->prefix('manage')->group(function(){
     Route::get('/acknowledge_receipt/edit/{ar_number}', [AcknowledgmentReceiptController::class, 'AcknowledgmentReceiptEdit'])
         ->name('acknowledge.receipt.edit');
     Route::post('/acknowledge_receipt/update/{ar_number}', [AcknowledgmentReceiptController::class, 'AcknowledgmentReceiptUpdate'])
-        ->name('acknowledge.receipt.update');
+        ->name('acknowledge.receipt.update')->middleware('admin');
 
     //payment
     Route::get('/payment/add', [PaymentController::class, 'PaymentAdd'])->name('payment.add');
-    Route::post('/payment/store', [PaymentController::class, 'PaymentStore'])->name('payment.store');
+    Route::post('/payment/store', [PaymentController::class, 'PaymentStore'])->name('payment.store')->middleware('admin');
 
     Route::get('/payment/edit/{or_number}', [PaymentController::class, 'PaymentEdit'])->name('payment.edit');
-    Route::post('/payment/update/{or_number}', [PaymentController::class, 'PaymentUpdate'])->name('payment.update');
+    Route::post('/payment/update/{or_number}', [PaymentController::class, 'PaymentUpdate'])->name('payment.update')->middleware('admin');
 
 });// manage prefix
 
@@ -122,9 +124,9 @@ Route::middleware(['auth'])->prefix('to_do_list')->group(function(){
     Route::get('/to_do/view', [ToDoRegisterController::class, 'TodoView'])->name('to_do.view');
 
     Route::get('/to_do/add', [ToDoRegisterController::class, 'TodoAdd'])->name('to_do.add');
-    Route::post('/to_do/store', [ToDoRegisterController::class, 'TodoStore'])->name('to_do.store');
+    Route::post('/to_do/store', [ToDoRegisterController::class, 'TodoStore'])->name('to_do.store')->middleware('admin');
 
-    Route::get('/to_do/delete/{tenant_id}', [ToDoRegisterController::class, 'TodoDelete'])->name('to_do.delete');
+    Route::get('/to_do/delete/{tenant_id}', [ToDoRegisterController::class, 'TodoDelete'])->name('to_do.delete')->middleware('admin');
 
  
 }); // end of todo prefix
