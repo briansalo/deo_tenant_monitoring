@@ -109,7 +109,7 @@
                         <a href="{{ route('to_do.add')}}"><i class="ti-more active"></i>To Do Add
                         </a>
                       </li>
-                      <li class="{{($route == 'to_do.list')?'active':''}}">
+                      <li class="{{($route == 'to_do.view')?'active':''}}">
                         <a href="{{route('to_do.view')}}"><i class="ti-more"></i>To Do List
                         </a>
                       </li>

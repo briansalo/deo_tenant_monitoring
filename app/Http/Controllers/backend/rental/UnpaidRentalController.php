@@ -149,7 +149,6 @@ public function UnpaidRentalComputePenalty(Request $request){
         $name[0] = '';
 
         $penalty = UnpaidRental::where('tenant_id', $request->id)->get();
-        //        dd($penalty);
 
             foreach($penalty as $row){
                 $tenant = Tenant::where('id', $request->id)->first();
@@ -160,6 +159,9 @@ public function UnpaidRentalComputePenalty(Request $request){
                  $month = new Carbon($row->month);
                  
                  $fifth_day = $month->firstOfMonth()->addDays(4);
+                 if($month->month == $today->month and $today <= $month->firstOfMonth()->addDays(4)){
+                   continue;
+                 }
 
                  $per_day = 75;
 
