@@ -51,6 +51,8 @@ class OfficialReceiptRecordController extends Controller
                              }elseif($request->payment_type == 3){        
                                 $data->start_date = date('Y-m-d',strtotime($request->from));//for electricity
                                 $data->end_date = date('Y-m-d',strtotime($request->to));//for electricity
+                             }else{
+                                $data->details = $request->details_other;
                              }
                         }
                         $data->or_number = $request->or_number;

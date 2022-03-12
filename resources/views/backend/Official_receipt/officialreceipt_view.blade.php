@@ -44,7 +44,7 @@
 														@elseif($record->billing_id ==3)
 															<td>Deep Well</td>
 														@else
-															<td></td>
+															<td>Other</td>
 														@endif
 										
 														@if($record->billing_id == 1)
@@ -56,7 +56,7 @@
 																{{ \Carbon\Carbon::parse($record->start_date)->format('Y F')}} 1  - {{ \Carbon\Carbon::parse($record->end_date)->format('Y F')}} 30
 															</td>
 														@else
-															<td></td>	
+															<td>{{$record->details}}</td>	
 														@endif
 
 														@if($record->status == 0)

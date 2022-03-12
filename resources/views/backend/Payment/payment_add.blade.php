@@ -45,6 +45,7 @@
 															<option value="1" selected="">Rental Payment</option>
 															<option value="2">Electricity Payment</option>
 															<option value="3">Deep Well Payment</option>
+															<option value="4">Other Payment</option>
 													   </select>
 													</div>   
 										</div>
@@ -149,6 +150,17 @@
 								</div>
 							</div><!-- end col md 6 -->
 						</div> <!--end row -->
+
+					 <div class="row d-none" id="other">
+							<div class="col-md-4">
+								<div class="form-group">
+									<h5>Details <span class="text-danger">*</span></h5>
+									<div class="controls">
+										<input type="text" id="details_other" name="details_other" class="form-control">
+									</div>
+								</div>
+							</div><!-- end col md 6 -->
+						</div> <!--end row -->
 						@error('month')
 						asd
 						@enderror
@@ -233,6 +245,7 @@ $("#payment_type").change(function() {
 				  $('#rental').removeClass('d-none');
 				  $('#electric').addClass('d-none');
 				  $('#water').addClass('d-none');
+				  $('#other').addClass('d-none');
 
 				  $('#or_number').removeClass('d-none');
 				  $('#or_number_null').attr('required',true);
@@ -247,6 +260,7 @@ $("#payment_type").change(function() {
 				  $('#to').removeAttr('required');
 				  $('#from_water').removeAttr('required');
 				  $('#to_water').removeAttr('required');
+				  $('#details_other').removeAttr('required');
 	  }
 
 	   if ($(this).val() == "2") { //for electricity payment
@@ -254,6 +268,7 @@ $("#payment_type").change(function() {
 				  $('#electric').removeClass('d-none');
 				  $('#rental').addClass('d-none');
 	    		$('#water').addClass('d-none');
+	    		$('#other').addClass('d-none');
 
 				  $('#ar_number').removeClass('d-none');
 				  $('#ar_number_null').attr('required',true);
@@ -268,6 +283,7 @@ $("#payment_type").change(function() {
 				  $('#month').removeAttr('required');
 				  $('#from_water').removeAttr('required');
 				  $('#to_water').removeAttr('required');
+				  $('#details_other').removeAttr('required');
 
 	  }
 
@@ -275,6 +291,7 @@ $("#payment_type").change(function() {
 	    		$('#water').removeClass('d-none');
 				  $('#electric').addClass('d-none');
 				  $('#rental').addClass('d-none');
+				  $('#other').addClass('d-none');
 
 				  $('#or_number').removeClass('d-none');
 				  $('#or_number_null').attr('required',true);
@@ -289,7 +306,31 @@ $("#payment_type").change(function() {
 				  $('#from').removeAttr('required');
 				  $('#to').removeAttr('required');
 				  $('#month').removeAttr('required');
+				  $('#details_other').removeAttr('required');
 	   }
+
+	   if ($(this).val() == "4") { //for other payment
+	    		$('#other').removeClass('d-none');
+				  $('#electric').addClass('d-none');
+				  $('#rental').addClass('d-none');
+				  $('#water').addClass('d-none');
+
+				  $('#or_number').removeClass('d-none');
+				  $('#or_number_null').attr('required',true);
+				  $('#ar_number').addClass('d-none');
+				  $('#ar_number_null').removeAttr('required');
+
+				 	var radio_status = $("input[name='status']:checked").val();
+					if(radio_status != 2){
+						  $('#details_other').attr('required',true);
+				  }
+				  $('#from').removeAttr('required');
+				  $('#to').removeAttr('required');
+				  $('#month').removeAttr('required');
+				  $('#from_water').removeAttr('required');
+				  $('#to_water').removeAttr('required');
+	   }
+
 });
 
 
@@ -309,6 +350,7 @@ $("input[name='status']").change(function(){
 				$('#to').removeAttr('required');  
 			  $('#from_water').removeAttr('required');
 			  $('#to_water').removeAttr('required');
+			  $('#details_other').removeAttr('required');
 		}
 
 });

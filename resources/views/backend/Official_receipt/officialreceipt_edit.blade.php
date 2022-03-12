@@ -45,6 +45,7 @@
 											   <select name="payment_type" id="payment_type" class="form-control" aria-invalid="false" required>
 													<option value="1"{{($official_receipt[0]->billing_id == 1)?'selected':''}}>Rental Payment</option>
 													<option value="3"{{($official_receipt[0]->billing_id == 3)?'selected':''}}>Deep Well Payment</option>
+													<option value="4"{{($official_receipt[0]->billing_id == 4)?'selected':''}}>Other Payment</option>
 											   </select>
 											</div>   
 								  </div>
@@ -138,6 +139,17 @@
 
 					</div><!-- end row-->
 
+					 <div class="row d-none" id="other">
+							<div class="col-md-4">
+								<div class="form-group">
+									<h5>Details <span class="text-danger">*</span></h5>
+									<div class="controls">
+										<input type="text" id="details_other" name="details_other" value="{{$official_receipt[0]->details}}"
+										 class="form-control">
+									</div>
+								</div>
+							</div><!-- end col md 6 -->
+						</div> <!--end row -->
 
 					<div class="row">
 						<div class="text-xs-right">
@@ -206,18 +218,33 @@ var count =$("#count").val();	// this variable to use the for loop
 			if(payment=="1"){
 						  $('#rental'+i).removeClass('d-none');
 						  $('#water').addClass('d-none');
+						  $('#other').addClass('d-none');
 
 						  $('#month').attr('required',true);
 						  $('#from').removeAttr('required');
 						  $('#to').removeAttr('required');
+						  $('#details_other').removeAttr('required');
 			}
 
 			if(payment=="3"){
 						  $('#water').removeClass('d-none');
 						  $('#rental').addClass('d-none');
+						  $('#other').addClass('d-none');
 
 						  $('#from').attr('required',true);
 						  $('#to').attr('required',true);
+						  $('#month').removeAttr('required');
+						  $('#details_other').removeAttr('required');
+			}
+
+			if(payment=="4"){
+						  $('#other').removeClass('d-none');
+						  $('#rental').addClass('d-none');
+						  $('#water').addClass('d-none');
+
+						  $('#details_other').attr('required',true);
+						  $('#from').removeAttr('required');
+						  $('#to').removeAttr('required');
 						  $('#month').removeAttr('required');
 			}
 	}//ENDFOR
@@ -264,7 +291,8 @@ $("input[name='status']").change(function(){
 					$('#select_name').removeAttr('required');
 					$('#month').removeAttr('required');
 					$('#from').removeAttr('required');  
-					$('#to').removeAttr('required');  
+					$('#to').removeAttr('required');
+					$('#details_other').removeAttr('required');  
 		  }
 
 });

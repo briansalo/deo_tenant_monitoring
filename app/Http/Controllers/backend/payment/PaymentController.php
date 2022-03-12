@@ -63,7 +63,7 @@ foreach($get_all_month as $value){
            $check_or= Payment::orderBy('or_number','DESC')->first();
             $check_ar= Payment::orderBy('ar_number','DESC')->first();
             //if payment type is equal to rental or equal to deepwell
-            if($request->payment_type == 1 or $request->payment_type == 3){
+            if($request->payment_type == 1 or $request->payment_type == 3 or $request->payment_type == 4){
                 //check if $check_or variable is null or the request->or_number is still available in database
                     if($check_or == null or $check_or->or_number == null or $check_or->or_number+1 == $request->or_number){
                     
@@ -75,9 +75,11 @@ foreach($get_all_month as $value){
                                   if($request->status!=2){ 
                                           if($request->payment_type == 1){ 
                                               $data->month = date('Y-m-d',strtotime($request->month[$i])); //for rental
-                                          }else{
+                                          }else if($request->payment_type == 3){
                                               $data->start_date = date('Y-m-d',strtotime($request->from_water));//for deepwell
                                               $data->end_date = date('Y-m-d',strtotime($request->to_water));//for deepwell  
+                                          }else{
+                                              $data->details = $request->details_other;
                                           }
                                     }
                                   $data->or_number = $request->or_number;
