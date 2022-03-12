@@ -258,6 +258,7 @@ $("#payment_type").change(function() {
 				  if ($(this).val() == "1") {
 							  $('#rental'+i).removeClass('d-none');
 							  $('#water').addClass('d-none');
+							  $('#other').addClass('d-none');
 
 							 	var radio_status = $("input[name='status']:checked").val();
 								if(radio_status != 2){
@@ -265,11 +266,13 @@ $("#payment_type").change(function() {
 							  }
 							  $('#from').removeAttr('required');
 							  $('#to').removeAttr('required');
+							  $('#details_other').removeAttr('required');
 				  }
 
 				  if ($(this).val() == "3") {
 							  $('#water').removeClass('d-none');
 							  $('#rental'+i).addClass('d-none');
+							  $('#other').addClass('d-none');
 
 							 	var radio_status = $("input[name='status']:checked").val();
 								if(radio_status != 2){
@@ -278,7 +281,23 @@ $("#payment_type").change(function() {
 							  }
 
 							  $('#month').removeAttr('required');
+							  $('#details_other').removeAttr('required');
 				 }
+
+				  if ($(this).val() == "4") {
+							  $('#other').removeClass('d-none');
+							  $('#rental'+i).addClass('d-none');
+							  $('#water').addClass('d-none');
+
+							 	var radio_status = $("input[name='status']:checked").val();
+								if(radio_status != 2){
+									  $('#details_other').attr('required',true);
+							  }
+							  $('#month').removeAttr('required');
+							  $('#from').removeAttr('required');
+							  $('#to').removeAttr('required');
+				 }
+
 		 }//end for 
 });
 
